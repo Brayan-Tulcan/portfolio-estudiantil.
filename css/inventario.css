@@ -1,0 +1,564 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background-color: var(--color-body);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #001f8e;
+    text-align: center;
+}
+
+form {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	background-color: #fff;
+	padding: 27px;
+    border-radius: 20px;
+    position: relative;
+}
+
+input:focus {
+	border: 3px solid #001f8e;
+	outline: none;
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+}
+
+label {
+    display: block;
+	font-weight: 700;
+	padding: 10px;
+	cursor: pointer;
+}
+
+input, button {
+	border: 2px solid #747474;
+	width: 93%;
+	font-size: 14px;
+	background: #fff;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+	rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+	border-radius: 3px;
+	height: 45px;
+	line-height: 45px;
+	padding: 0 40px 0 10px;
+	transition: .3s ease all;
+	border-radius: 10px;
+}
+
+
+
+select {
+    margin-bottom: 10px;
+    width: 93%;
+    outline: none;
+    background: white;
+    color: black;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+	rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    padding: 11px;
+    border-radius: 10px;
+	border: 2px solid #747474;
+  }
+
+
+button {
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+}
+
+.edit {
+    background-color: #ffc107;
+    color: white;
+}
+
+.delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+
+button:hover {
+    background-color:  #001f8e;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+/*sidelbar*/
+:root {
+    --color-barra-lateral: #e6f0ff;
+    --shadow-color: 229deg 5% 38%;
+
+    --shadow-elevation-sidebar-low:
+        1px 0px 1.1px hsl(var(--shadow-color) / 0.23),
+        1.5px 0px 1.7px -1.2px hsl(var(--shadow-color) / 0.23),
+        3.3px 0px 3.7px -2.5px hsl(var(--shadow-color) / 0.23);
+
+    --shadow-elevation-sidebar-medium:
+        1px 0px 1.4px hsl(var(--shadow-color) / 0.08),
+        5.8px -0.1px 8.2px -0.3px hsl(var(--shadow-color) / 0.26),
+        17.5px -0.2px 24.8px -0.5px hsl(var(--shadow-color) / 0.45);
+
+    --color-texto: #000000;
+    --color-texto-menu: #00000c;
+
+    --color-menu-hover:#001f8e;
+    --color-menu-hover-texto:  #e6f0ff;
+
+    --color-boton: #28a745;
+    --color-boton-texto: #ffffff;
+
+    --color-linea: #001f8e;
+
+    --color-switch-base:  #001f8e;
+    --color-switch-circulo: #28a745;
+
+    --color-scroll: #e6f0ff;
+    --color-scroll-hover: #f5faff;
+    --color-body:  #e6f0ff;
+}
+
+.dark-mode {
+    --color-barra-lateral: #2c2d31;
+
+    --color-texto: #ffffff;
+    --color-texto-menu: #6e6e75;
+
+    --color-menu-hover: #000000;
+    --color-menu-hover-texto: #eeeeee;
+
+    --color-boton: #ffffff;
+    --color-boton-texto: #000000;
+
+    --color-linea: #5a5a5a;
+
+    --color-switch-base: #27cd40;
+    --color-switch-circulo: #ffffff;
+
+    --color-scroll: #44454a;
+    --color-scroll-hover: #555555;
+}
+
+/* Menu */
+.menu {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--color-boton);
+    color: var(--color-boton-texto);
+    right: 15px;
+    top: 15px;
+    z-index: 100;
+}
+
+/* Barra Lateral */
+.barra-lateral {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 250px;
+    height: 100%;
+    overflow: hidden;
+    padding: 20px 15px;
+    background-color: var(--color-barra-lateral);
+    transition: width 0.5s ease, background-color 0.3s ease, left 0.5s ease;
+    z-index: 50;
+    box-shadow: var(--shadow-elevation-sidebar-medium);
+}
+
+.mini-barra-lateral {
+    width: 80px;
+}
+
+.barra-lateral span {
+    width: 100px;
+    white-space: nowrap;
+    font-size: 18px;
+    text-align: left;
+    opacity: 1;
+    transition: opacity 0.5s ease, width 0.5s ease;
+}
+
+.barra-lateral span.oculto {
+    opacity: 0;
+    width: 0;
+}
+
+/* Nombre de la página */
+.barra-lateral .nombre-pagina {
+    width: 100%;
+    height: 45px;
+    color: var(--color-texto);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.barra-lateral .nombre-pagina ion-icon {
+    min-width: 50px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.barra-lateral .nombre-pagina span {
+    margin-left: 5px;
+    font-size: 25px;
+}
+
+/* Botón */
+.barra-lateral .boton {
+    width: 100%;
+    height: 45px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color-boton);
+    color: var(--color-boton-texto);
+}
+
+.barra-lateral .boton ion-icon {
+    min-width: 50px;
+    font-size: 25px;
+}
+
+/* Menu Navegación */
+.barra-lateral .navegacion {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.barra-lateral .navegacion::-webkit-scrollbar {
+    width: 5px;
+}
+
+.barra-lateral .navegacion::-webkit-scrollbar-thumb {
+    background-color: var(--color-scroll);
+    border-radius: 5px;
+}
+
+.barra-lateral .navegacion::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-scroll-hover);
+}
+
+.barra-lateral .navegacion li {
+    list-style: none;
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.barra-lateral .navegacion a {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 10px;
+    color: var(--color-texto-menu);
+}
+
+.barra-lateral .navegacion a:hover {
+    background-color: var(--color-menu-hover);
+    color: var(--color-menu-hover-texto);
+}
+
+.barra-lateral .navegacion ion-icon {
+    min-width: 50px;
+    font-size: 20px;
+}
+
+/* Linea */
+.barra-lateral .linea {
+    width: 100%;
+    height: 1px;
+    margin-top: 15px;
+    background-color: var(--color-linea);
+}
+
+/* Modo Oscuro */
+.barra-lateral .modo-oscuro {
+    width: 100%;
+    margin-bottom: 80px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.barra-lateral .modo-oscuro .info {
+    width: 150px;
+    height: 45px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    color: var(--color-texto-menu);
+}
+
+.barra-lateral .modo-oscuro ion-icon {
+
+    width: 50px;
+    font-size: 20px;
+}
+
+/* switch */
+.barra-lateral .modo-oscuro .switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: 45px;
+    cursor: pointer;
+}
+
+.barra-lateral .modo-oscuro .base {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 35px;
+    height: 20px;
+    background-color: var(--color-switch-base);
+    border-radius: 50px;
+}
+
+.barra-lateral .modo-oscuro .circulo {
+    position: absolute;
+    width: 18px;
+    height: 90%;
+    background-color: var(--color-switch-circulo);
+    border-radius: 50%;
+    left: 2px;
+    transition: left 0.5s ease;
+}
+
+.barra-lateral .modo-oscuro .circulo.prendido {
+    left: 15px;
+}
+
+/*---------------> Usuario*/
+.barra-lateral .usuario {
+    width: 100%;
+    display: flex;
+}
+
+.barra-lateral .usuario img {
+    width: 50px;
+    min-width: 50px;
+    border-radius: 10px;
+}
+
+.barra-lateral .usuario .info-usuario {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-texto);
+    overflow: hidden;
+}
+
+.barra-lateral .usuario .nombre-email {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+
+.barra-lateral .usuario .nombre {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.barra-lateral .usuario .email {
+    font-size: 13px;
+}
+
+.barra-lateral .usuario ion-icon {
+    font-size: 20px;
+}
+
+/* main */
+#inbox {
+    background-color: var(--color-menu-hover);
+    color: var(--color-menu-hover-texto);
+}
+
+main {
+    margin-left: 280px;
+    padding: 20px;
+    transition: margin-left 0.5s ease;
+}
+
+main.min-main {
+    margin-left: 110px;
+}
+
+/* Responsive mode */
+@media (max-height: 660px) {
+    .barra-lateral .nombre-pagina {
+        margin-bottom: 5px;
+    }
+
+    .barra-lateral .modo-oscuro {
+        margin-bottom: 3px;
+    }
+}
+
+@media (max-width: 600px) {
+    .barra-lateral {
+        position: fixed;
+        left: -250px;
+    }
+
+    .max-barra-lateral {
+        left: 0;
+    }
+
+    .menu {
+        display: flex;
+    }
+
+    .menu ion-icon:nth-child(2) {
+        display: none;
+    }
+
+    main {
+        margin-left: 0;
+    }
+
+    main.min-main {
+        margin-left: 0;
+    }
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h2 {
+        font-size: 1.5rem;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    .search {
+        justify-content: center;
+    }
+
+
+    input, button {
+        grid-column: 1;
+    }
+
+    button{
+        width: 100%;
+    }
+    
+}
+
+@media screen and (max-width: 600px) {
+
+    table {
+    border: 0px;
+    }
+
+    table th, .table td {
+    font-size: 12px;
+    }
+    
+    table td {
+    display: block;
+    border-bottom: 1px solid #ddd;
+    text-align: right;
+    }
+    
+    table th{
+    display: block;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    }
+
+    /*table caption {
+    font-size: 22px;
+    }not use*/
+
+    /*table thead {
+    display: none;
+    }not use*/
+
+    /*table tr {
+    margin-bottom: 8px;
+    border-bottom: 4px solid #ddd;
+    display: block;
+    }not use*/
+
+ 
+
+    /*table td:last-child {
+    border-bottom: 0px;
+    }*/
+
+    /*table th::before {
+    content: attr(data-label);
+    font-weight: bold;
+    text-transform: uppercase;
+    float: left;
+    }*/
+
+}
+
+/*Cerrar Sesion*/
+.page-link a{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: #126626;
+}
+
+/*margin top 30px, sirve para separar*/

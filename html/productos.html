@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../css/inventario.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap" rel="stylesheet"> 
+	<title>Productos</title>
+</head>
+<body>
+	<div class="menu">
+        <ion-icon name="menu-outline"></ion-icon>
+        <ion-icon name="close-outline"></ion-icon>
+    </div>
+
+    <div class="barra-lateral">
+        <div>
+            <div class="nombre-pagina">
+                <ion-icon id="logo" name="storefront-outline"></ion-icon>
+                <span>Tienda Virtual</span>
+            </div>
+        </div>
+
+        <nav class="navegacion">
+            <ul>
+                <li>
+                    <a  href="inventario.html">
+                        <ion-icon name="folder"></ion-icon>
+                        <span>Inventario</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a id="inbox" href="productos.html">
+                        <ion-icon name="bag-handle-outline"></ion-icon>
+                        <span>Productos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="compras.html">
+                        <ion-icon name="cart-outline"></ion-icon>
+                        <span>Compras</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="proveedores.html">
+                        <ion-icon name="bus-outline"></ion-icon>
+                        <span>Proveedores</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+  
+
+        <div>
+            <div class="linea"></div>
+
+            <div class="modo-oscuro">
+                <div class="info">
+                    <ion-icon name="moon-outline"></ion-icon>
+                    <span>Modo</span>
+                </div>
+                <div class="switch">
+                    <div class="base">
+                        <div class="circulo"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="usuario">
+                <img src="../img/avatar-user-x640.jpg" alt="">
+                <div class="info-usuario">
+                    <div class="nombre-email">
+                        <span class="nombre">Usuario</span>
+                        <span class="email">usuario@gmail.com</span>
+                        <div class="page-link">
+                          <span class="page-link-label"></span>
+                          <a href="login.html">Salir</a>
+                        </div>
+                    </div>
+                    <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <main>
+       
+        <div class="container">
+
+            <h1>Gestion de Productos</h1>
+
+            <br>
+      
+            <form id="inventory-form">
+      
+              <input type="hidden" id="product-id" />
+
+              <label for="name">Nombre del Producto:</label>
+              <input type="text" id="name" required />
+      
+              <label for="initial-value">Valor Inicial:</label>
+              <input type="number" id="initial-value" required />
+      
+              <label for="final-value">Valor Final:</label>
+              <input type="number" id="final-value" required />
+      
+              <label for="initial-date">Fecha Inicial:</label>
+              <input type="date" id="initial-date" required />
+      
+              <label for="expiry-date">Fecha de Vencimiento:</label>
+              <input type="date" id="expiry-date" required />
+      
+              <label for="quantity">Cantidad:</label>
+              <input type="number" id="quantity" required />
+      
+              <label for="image">Imagen del Producto:</label>
+              <input type="file" id="image" accept="image/*" required/>
+      
+              <label for="provider">Proveedor:</label>
+              <input type="text" id="provider" required />
+      
+              <label for="product-type">Tipo de Producto:</label>
+              <select id="product-type" name="product-type" required>
+                <option value="">Selecciona</option>
+                <option value="Lacteos">Lacteos</option>
+                <option value="Viveres">Vivires</option>
+                <option value="Licores">Licores</option>
+                <option value="Carnes">Carnes</option>
+                <option value="Verduras">Verduras</option>
+                <option value="Frutas">Frutas</option>
+                <option value="Aseo y Limpieza">Aseo y impieza</option>
+                <option value="Concentrado">Concentrado</option>
+                <option value="Papeleria">Papeleria</option>
+              </select>
+      
+              <br>
+              <button type="submit">Guardar - Actualizar</button>
+
+            </form>
+
+            <br>
+            <!--Titulo -->
+            <h2>Lista de Productos</h2>
+            <br>
+            <input type="text" id="search-id" placeholder="Buscar por ID" />
+            <br>
+            <br>
+            <button onclick="searchProduct()">Buscar</button>
+            <br>
+            <br>
+             <!-- boton exportar a excel -->
+            <button id="exportBtn">Exportar a Excel</button>
+            <br>
+            <br>
+             <!-- Tabla de inventario -->
+            <table id="product-list">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Valor Inicial</th>
+                  <th>Valor Final</th>
+                  <th>Valor Ganancia</th>
+                  <th>Fecha Inicial</th>
+                  <th>Fecha de Vencimiento</th>
+                  <th>Caducidad Del Producto</th>
+                  <th>Cantidad</th>
+                  <th>Imagen</th>
+                  <th>Proveedor</th>
+                  <th>Tipo</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+    </main>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../js/home.js"></script>
+    <script src="../js/productos.js"></script>
+</body>
+</html>

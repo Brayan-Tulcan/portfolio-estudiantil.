@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap" rel="stylesheet"> 
+    <title>Recuperar Contraseña</title>
+    <link rel="stylesheet" href="../css/recuperar.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Tienda Virtual</h1>
+            </div>
+            <ul id="menuList">
+                <li><a href="login.html">Inicio</a></li>
+                <li><a href="quienessomos.html">Quiénes Somos</a></li>
+                <li><a href="contactanos.html">Contactanos</a></li>
+            </ul>
+            <div class="menu-icon">
+                <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero">
+
+
+
+            <div class="form-container">
+
+                <h2>Recupera Tu <span> Contraseña</span></h2>
+
+
+                <form action="#" id="loginForm" onsubmit="return  validarFormulario()">
+
+                    <input type="email" id="email" placeholder="Correo Electrónico" required>
+
+
+                    <button type="submit" class="submit-button">Enviar</button>
+
+                </form>
+
+
+      <br>
+      <div class="page-link">
+        <span class="page-link-label"></span>
+        <a href="login.html">Volver</a>
+      </div>
+
+
+                </div>
+
+            <div class="video">
+                <img src="../img/recuperar.png" width="560" height="315" alt="quienessomos">
+            </div>
+
+        </section>
+
+    </main>
+
+          <!-- Pie de página -->
+          <footer>
+
+            <div class="footer-logo">
+                <span class="logo-text">Tienda</span><span class="logo-highlight"> Virtual</span>
+            </div>
+            
+            <p>Ingresa o Registrarte</p>
+
+            <div class="footer-links">
+    
+                <div class="app-links">
+                    <h3>Encuentranos En</h3>
+                    <a href="https://www.facebook.com/">
+                        <img src="../img/facebook.png"  alt="facebook">
+                    </a>
+                    <a href="https://www.instagram.com/">
+                        <img src="../img/instagram.png" alt="instagram"></a>
+                </div>
+    
+                <div>
+                    <h3>Términos y condiciones</h3>
+                    <a href="#">Conoce nuestras políticas</a>
+                </div>
+    
+                <div>
+                    <h3>Sobre Tienda Virtual</h3>
+                    <a href="../html/quienessomos.html">¿Quiénes somos?</a>
+                </div>
+                
+                	
+                <div class="app-links">
+                    <h3>Consigue nuestra App en</h3>
+                    <a href="https://play.google.com/">
+                        <img src="../img/playstore.png" alt="Google Play">
+                    </a>
+                    <a href="https://www.apple.com/co/app-store/">
+                        <img src="../img/apple.png" alt="App Store"></a>
+                </div>
+
+            </div>
+    
+            <br>
+            <br>
+            
+            <p>&copy; 2024 Brayan Camilo Tulcan Delgado. Todos los derechos reservados.</p>
+        </footer>
+        <script>
+            let menuList = document.getElementById("menuList")
+            menuList.style.maxHeight = "0px";
+    
+            function toggleMenu(){
+                if(menuList.style.maxHeight == "0px")
+                {
+                    menuList.style.maxHeight = "300px";
+                }
+                else{
+                    menuList.style.maxHeight = "0px";
+                }
+            }
+            
+        </script>
+        <script src="https://kit.fontawesome.com/f8e1a90484.js" crossorigin="anonymous"></script>
+    
+</body>
+</html>

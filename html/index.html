@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Inventario</h1>
+
+        <!-- Formulario para agregar/editar producto -->
+        <form id="productForm">
+            <input type="hidden" id="productId" />
+            <div>
+                <label for="productName">Nombre del Producto:</label>
+                <input type="text" id="productName" required>
+            </div>
+            <div>
+                <label for="productPrice">Precio:</label>
+                <input type="number" id="productPrice" required>
+            </div>
+            <div>
+                <label for="productQuantity">Cantidad:</label>
+                <input type="number" id="productQuantity" required>
+            </div>
+
+
+            <label for="productCategory">Tipo de Producto:</label>
+            <select id="productCategory" name="product-type" required>
+              <option value="">Selecciona</option>
+              <option value="Lacteos">Lacteos</option>
+              <option value="Viveres">Vivires</option>
+              <option value="Licores">Licores</option>
+              <option value="Carnes">Carnes</option>
+              <option value="Verduras">Verduras</option>
+              <option value="Frutas">Frutas</option>
+              <option value="Aseo y Limpieza">Aseo y impieza</option>
+              <option value="Concentrado">Concentrado</option>
+              <option value="Papeleria">Papeleria</option>
+            </select>
+
+
+
+
+            <div>
+                <label for="purchaseDate">Fecha de Compra:</label>
+                <input type="date" id="purchaseDate" required>
+            </div>
+            <div>
+                <label for="supplier">Proveedor:</label>
+                <input type="text" id="supplier" required>
+            </div>
+            <button type="submit">Guardar Producto</button>
+        </form>
+
+        <!-- Filtro de búsqueda -->
+        <div>
+            <h2>Buscar Producto</h2>
+            <input type="text" id="searchInput" placeholder="Buscar por ID, nombre, categoría o proveedor">
+        </div>
+
+         <!-- Botón para exportar a Excel -->
+        <button id="exportBtn">Exportar a Excel</button>
+
+        <!-- Tabla de inventario -->
+        <table id="inventoryTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Categoría</th>
+                    <th>Fecha de Compra</th>
+                    <th>Proveedor</th>
+                    <th>Total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
