@@ -85,13 +85,8 @@ main {
 
 
 .hero img {
+    /*margin-left: 114px;*/
     max-width: 300px;
-}
-
-img{
-    filter: drop-shadow(
-        0 0 10px rgba rgba(0, 0, 0, .8)
-    );
 }
 
 .form-container {
